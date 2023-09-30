@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { AuthContextProvider } from "../src/common/Auth/AuthContext";
 import SignUp from "../src/components/SignUp/SignUp";

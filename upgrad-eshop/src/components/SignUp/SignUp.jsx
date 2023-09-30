@@ -5,6 +5,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import axios from "axios";
 import SubmitButtonMui from "../../common/MuiComponents/Buttons/SubmitButtonMui";
 import SignUpTextMui from "../../common/MuiComponents/TextField/SignUpTextMui";
+import NavigationBar from "../../common/NavBar/NavBar";
 import { SuccessToast, ErrorToast } from "../../common/Toasts/Toasts";
 import "./SignUp.css";
 
