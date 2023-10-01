@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { AuthContextProvider } from "../src/common/Auth/AuthContext";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "../src/components/SignUp/SignUp";
+import LogIn from "../src/components/LogIn/LogIn";
 import './App.css';
 
 const appTheme = createTheme({
@@ -21,6 +22,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route exact path="/" element={<Navigate to="/LogIn" />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
