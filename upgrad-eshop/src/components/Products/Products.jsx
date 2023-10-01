@@ -3,6 +3,7 @@ import NavigationBar from "../../common/NavBar/NavBar";
 import { FormControl, Grid, InputLabel, MenuItem, Select, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import { AuthContext } from "../../common/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import ProductCard from "../ProductCard/ProductCard";
 import axios from "axios";
 import { ErrorToast } from "../../common/Toasts/Toasts";
 import "./Products.css";
@@ -153,9 +154,13 @@ function ProductsPage() {
 
           <Grid container spacing={5} style={{ margin: "10px 0" }}>
             {data.map((item) => (
-            {
-                // need to be edited when product card added
-            }
+            <ProductCard
+            key={item.id}
+            productData={item}
+            isAdmin={isAdmin}
+            handleDeleteCall={() => handleDeleteCall(item.id)}
+            navigate={navigate}
+          />
             ))}
           </Grid>
         </div>
