@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Box, CircularProgress, TextField, Typography } from "@mui/material";
 import NavigationBar from "../../common/NavBar/NavBar";
 import SubmitButtonMui from "../../common/MuiComponents/Buttons/SubmitButtonMui";
+import axios from "axios";
+import { SuccessToast, ErrorToast } from "../../common/Toasts/Toasts";
 import "./AddProduct.css";
 
 function AddProduct() {
@@ -26,8 +28,127 @@ function AddProduct() {
   const [priceError, setPriceError] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/products/categories", {
+        headers: {
+          "x-auth-token": `${authToken}`,
+        },
+      })
+      .then(function (response) {
+        setCategoryList(response.data);
+      })
+      .catch(function () {
+        ErrorToast("Error observed: There was an issue in retrieving categories list.");
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  useEffect(() => {
+    if (isEditMode) {
+      setDataLoading(true);
+      axios
+        .get(`http://localhost:8080/api/products/${id}`, {
+          headers: {
+            "x-auth-token": `${authToken}`,
+          },
+        })
+        .then((response) => {
+          const data = response.data;
+          setName(data.name);
+          const categoryName = data.category;
+          setCategory({ label: categoryName, value: categoryName });
+          setManufacturer(data.manufacturer);
+          setAvailableItems(data.availableItems);
+          setPrice(data.price);
+          setImageUrl(data.imageUrl);
+          setProductDescription(data.description);
+        })
+        .catch(() =>
+          ErrorToast("Error observed: There was an issue in retrieving product details.")
+        )
+        .finally(() => setDataLoading(false));
+    }
+  }, [isEditMode, id, authToken]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setNameError(false);
+    setManufacturerError(false);
+    setAvailableItemsError(false);
+    setPriceError(false);
+
+    if (name === "") {
+      setName(true);
+    }
+    if (manufacturer === "") {
+      setManufacturer(true);
+    }
+    if (availableItems === "") {
+      setAvailableItemsError(true);
+    }
+    if (price === "") {
+      setPriceError(true);
+    }
+
+    if (name && manufacturer && category.value && availableItems && price) {
+      if (isEditMode) {
+        axios
+          .put(
+            `http://localhost:8080/api/products/${id}`,
+            {
+              name: name,
+              category: category.value,
+              manufacturer: manufacturer,
+              availableItems: availableItems,
+              price: price,
+              imageUrl: imageUrl,
+              description: productDescription,
+            },
+            {
+              headers: {
+                "x-auth-token": `${authToken}`,
+              },
+            }
+          )
+          .then(function () {
+            SuccessToast(`Product ${name} updated successfully!`);
+            navigate("/products");
+          })
+          .catch(function () {
+            ErrorToast(
+              `Error observed: There was an issue is updating the product ${name}.`
+            );
+          });
+      } else {
+        axios
+          .post(
+            "http://localhost:8080/api/products",
+            {
+              name: name,
+              category: category.value,
+              manufacturer: manufacturer,
+              availableItems: availableItems,
+              price: price,
+              imageUrl: imageUrl,
+              description: productDescription,
+            },
+            {
+              headers: {
+                "x-auth-token": `${authToken}`,
+              },
+            }
+          )
+          .then(function () {
+            SuccessToast(`Product ${name} added successfully!`);
+            navigate("/products");
+          })
+          .catch(function () {
+            ErrorToast(`Error observed: There was an issue in adding the product: ${name}.`);
+          });
+      }
+    }
+  };
   return (
     <div>
       <NavigationBar isLogged={authToken !== null} isAdmin={isAdmin} />
