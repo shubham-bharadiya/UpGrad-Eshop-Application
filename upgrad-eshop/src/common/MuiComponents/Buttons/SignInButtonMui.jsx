@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
+/* This is a material UI component and will be used as SignIn Button */
 
+import { Button } from "@mui/material";
 import React from "react";
 
 const SignInButtonMui = (props) => {

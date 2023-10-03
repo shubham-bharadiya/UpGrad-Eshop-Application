@@ -1,3 +1,5 @@
+/* Navigation bar which will include login / logout, signup, home, add product components */
+
 import React from "react";
 import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";

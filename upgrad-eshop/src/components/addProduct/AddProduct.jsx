@@ -1,3 +1,5 @@
+/* Add and Edit product */
+
 import { useContext, useEffect, useState } from "react";
 import CreatableSelect from "react-select/creatable";
 import { AuthContext } from "../../common/Auth/AuthContext";

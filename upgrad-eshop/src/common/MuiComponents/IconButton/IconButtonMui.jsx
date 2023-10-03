@@ -1,8 +1,9 @@
+/* This is a material UI component and will be used as Shopping Car Icon */
+
+import React from "react";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-import React from "react";
 
 const IconButtonMui = (props) => {
   return (
