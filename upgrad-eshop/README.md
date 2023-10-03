@@ -1,6 +1,5 @@
-<!-- This is UpGrad E-shop (e-commerce) application built using ReactJS -->
+**This project is an application for UpGrad E-shop (e-commerce website).**
 
-<!-- after cloning the project, install node modules and dependencies with npm install and then run npm start in project directory>
+<!-- To start the project, clone this project to local machine server. Go the project directory and run npm install. Once node modules are installed on local machine server, run npm start to start the application -->
 
-<!-- There is no default admin account. Admin account needs to be created using backend database -->
-
+<!-- Please create admin account using signUp API in the backend code module. -->
