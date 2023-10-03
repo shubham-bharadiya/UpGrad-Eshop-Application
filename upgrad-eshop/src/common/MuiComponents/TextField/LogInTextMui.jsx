@@ -8,7 +8,7 @@ const LoginTextMui = (props) => {
       onChange={props.onChange}
       required
       variant="outlined"
-      sx={{ mb: 3 }}
+      sx={{ mb: 2 }}
       fullWidth
       type={props.type}
       value={props.value}

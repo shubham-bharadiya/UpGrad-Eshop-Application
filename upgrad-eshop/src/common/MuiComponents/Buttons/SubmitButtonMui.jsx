@@ -7,7 +7,7 @@ const SubmitButtonMui = (props) => {
       variant="contained"
       color="primary"
       type="submit"
-      sx={{ mt: 2, width: "100%" }}
+      sx={{ mt: 3, width: "100%" }}
       disabled={props.disabled !== undefined ? props.disabled : false}
     >
       {props.value}

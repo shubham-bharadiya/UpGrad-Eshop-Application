@@ -8,7 +8,7 @@ const PlaceOrderButtonMui = (props) => {
       color="primary"
       type="button"
       disabled={props.disabled}
-      sx={{ mt: 2 }}
+      sx={{ mt: 3 }}
       onClick={props.onClick}
     >
       Place Order

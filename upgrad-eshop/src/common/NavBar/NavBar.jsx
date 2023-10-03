@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -5,7 +6,6 @@ import { Grid } from "@mui/material";
 import SearchInput from "../../components/Search/Search";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../common/Auth/AuthContext";
-import React from "react";
 import NavBarLoggedInButtonMui from "../MuiComponents/Buttons/NavBarLoggedInButtonMui";
 import NavBarLogoutButtonMui from "../MuiComponents/Buttons/NavBarLogoutButtonMui.jsx";
 import IconButtonMui from "../MuiComponents/IconButton/IconButtonMui";

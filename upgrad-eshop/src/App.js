@@ -5,6 +5,8 @@ import SignUp from "../src/components/SignUp/SignUp";
 import LogIn from "../src/components/LogIn/LogIn";
 import AddProduct from "../src/components/addProduct/AddProduct";
 import Products from "../src/components/Products/Products";
+import ProductDetails from "../src/components/ProductDetails/ProductDetails";
+import Orders from "../src/components/Orders/Orders";
 import './App.css';
 
 const appTheme = createTheme({
@@ -29,6 +31,8 @@ function App() {
             <Route path="/edit-product/:id" element={<AddProduct />} />
             <Route path="/add-product" element={<AddProduct />} />
             <Route exact path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/order" element={<Orders />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

@@ -5,7 +5,7 @@
 }
 
 .card-content-wrapper {
-  height: 150px;
+  height: 180px;
   overflow-y: auto;
   position: relative;
   display: flex;

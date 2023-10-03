@@ -7,7 +7,7 @@ const SignUpTextMui = (props) => {
       required
       variant="outlined"
       type={props.type}
-      sx={{ mb: 3 }}
+      sx={{ mb: 2 }}
       fullWidth
       label={props.label}
       onChange={props.onChange}

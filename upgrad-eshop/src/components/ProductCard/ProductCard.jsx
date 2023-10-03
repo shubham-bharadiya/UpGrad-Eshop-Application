@@ -31,7 +31,7 @@
       <Grid key={key} item xs={4}>
         <Card>
           <CardMedia
-            sx={{ height: 150 }}
+            sx={{ height: 180 }}
             image={
               productData.imageUrl.length > 0
                 ? productData.imageUrl
@@ -75,7 +75,7 @@
                   open={openDialog}
                   onClose={handleCloseDialog}
                   onConfirm={handleConfirmDelete}
-                  title="Confirm deletion of product!"
+                  title="Confirm deletion of this product!"
                   content="Are you sure you want to delete this product?"
                 />
                 <IconButton

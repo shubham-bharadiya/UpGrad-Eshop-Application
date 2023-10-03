@@ -166,7 +166,7 @@ function ProductsPage() {
         </div>
       ) : (
         <Typography gutterBottom variant="body1" component="p">
-          There are no products available at this time.
+          There are no products available at this particular time.
         </Typography>
       )}
     </Fragment>
